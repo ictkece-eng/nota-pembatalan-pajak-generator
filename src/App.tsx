@@ -47,6 +47,8 @@ interface NotaData {
   items: TaxItem[];
   tanggalDokumen: string;
   penandatangan: string;
+  namaPenandatangan: string;
+  jabatanPenandatangan: string;
 }
 
 const initialData: NotaData = {
@@ -71,7 +73,9 @@ const initialData: NotaData = {
     }
   ],
   tanggalDokumen: '2025-02-13',
-  penandatangan: 'PT Pertamina Hulu Energi ONWJ'
+  penandatangan: 'PT Pertamina Hulu Energi ONWJ',
+  namaPenandatangan: '',
+  jabatanPenandatangan: ''
 };
 
 // Helpers
@@ -521,6 +525,24 @@ export default function App() {
                   className="w-full glass-input px-4 py-2.5 rounded-xl outline-none"
                 />
               </div>
+              <div className="space-y-1.5">
+                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Nama</label>
+                <input 
+                  type="text" 
+                  value={data.namaPenandatangan}
+                  onChange={(e) => setData({...data, namaPenandatangan: e.target.value})}
+                  className="w-full glass-input px-4 py-2.5 rounded-xl outline-none"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Jabatan</label>
+                <input 
+                  type="text" 
+                  value={data.jabatanPenandatangan}
+                  onChange={(e) => setData({...data, jabatanPenandatangan: e.target.value})}
+                  className="w-full glass-input px-4 py-2.5 rounded-xl outline-none"
+                />
+              </div>
             </div>
           </section>
         </div>
@@ -624,6 +646,8 @@ export default function App() {
               <p>Jakarta, {formatDateIndo(data.tanggalDokumen)}</p>
               <p className="mt-1 font-bold">{data.penandatangan}</p>
               <div className="h-24"></div>
+              <p className="font-bold">{data.namaPenandatangan}</p>
+              <p className="mt-1">{data.jabatanPenandatangan}</p>
             </div>
           </div>
           
