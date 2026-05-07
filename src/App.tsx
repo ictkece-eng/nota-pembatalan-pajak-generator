@@ -45,6 +45,7 @@ interface NotaData {
   penerima: TaxParty;
   pemberi: TaxParty;
   items: TaxItem[];
+  kotaPenandatangan: string;
   tanggalDokumen: string;
   penandatangan: string;
   namaPenandatangan: string;
@@ -72,6 +73,7 @@ const initialData: NotaData = {
       amount: 90004085
     }
   ],
+  kotaPenandatangan: 'Duri',
   tanggalDokumen: '2025-02-13',
   penandatangan: 'PT Pertamina Hulu Energi ONWJ',
   namaPenandatangan: '',
@@ -507,14 +509,25 @@ export default function App() {
               Tanda Tangan
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Tanggal Dokumen</label>
-                <input 
-                  type="date" 
-                  value={data.tanggalDokumen}
-                  onChange={(e) => setData({...data, tanggalDokumen: e.target.value})}
-                  className="w-full glass-input px-4 py-2.5 rounded-xl outline-none [color-scheme:dark]"
-                />
+              <div className="space-y-4">
+                <div className="space-y-1.5">
+                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Kota Penandatangan</label>
+                  <input 
+                    type="text" 
+                    value={data.kotaPenandatangan}
+                    onChange={(e) => setData({...data, kotaPenandatangan: e.target.value})}
+                    className="w-full glass-input px-4 py-2.5 rounded-xl outline-none"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Tanggal Nota</label>
+                  <input 
+                    type="date" 
+                    value={data.tanggalDokumen}
+                    onChange={(e) => setData({...data, tanggalDokumen: e.target.value})}
+                    className="w-full glass-input px-4 py-2.5 rounded-xl outline-none [color-scheme:dark]"
+                  />
+                </div>
               </div>
               <div className="space-y-4">
                 <div className="space-y-1.5">
@@ -527,7 +540,7 @@ export default function App() {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Nama</label>
+                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Nama Pejabat</label>
                   <input 
                     type="text" 
                     value={data.namaPenandatangan}
@@ -536,7 +549,7 @@ export default function App() {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Jabatan</label>
+                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Jabatan Lengkap</label>
                   <input 
                     type="text" 
                     value={data.jabatanPenandatangan}
@@ -645,7 +658,7 @@ export default function App() {
 
             {/* Signature Area */}
             <div className="mt-auto pt-12 self-end text-center min-w-[300px]">
-              <p>Jakarta, {formatDateIndo(data.tanggalDokumen)}</p>
+              <p>{data.kotaPenandatangan || '\u00A0'}, {formatDateIndo(data.tanggalDokumen)}</p>
               <p className="mt-1 font-bold">{data.penandatangan}</p>
               <div className="h-24 flex items-end justify-center">
                 <div className="w-56 border-t border-black pt-1">
