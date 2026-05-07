@@ -516,32 +516,34 @@ export default function App() {
                   className="w-full glass-input px-4 py-2.5 rounded-xl outline-none [color-scheme:dark]"
                 />
               </div>
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Nama Penandatangan</label>
-                <input 
-                  type="text" 
-                  value={data.penandatangan}
-                  onChange={(e) => setData({...data, penandatangan: e.target.value})}
-                  className="w-full glass-input px-4 py-2.5 rounded-xl outline-none"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Nama</label>
-                <input 
-                  type="text" 
-                  value={data.namaPenandatangan}
-                  onChange={(e) => setData({...data, namaPenandatangan: e.target.value})}
-                  className="w-full glass-input px-4 py-2.5 rounded-xl outline-none"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Jabatan</label>
-                <input 
-                  type="text" 
-                  value={data.jabatanPenandatangan}
-                  onChange={(e) => setData({...data, jabatanPenandatangan: e.target.value})}
-                  className="w-full glass-input px-4 py-2.5 rounded-xl outline-none"
-                />
+              <div className="space-y-4">
+                <div className="space-y-1.5">
+                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Nama Penandatangan</label>
+                  <input 
+                    type="text" 
+                    value={data.penandatangan}
+                    onChange={(e) => setData({...data, penandatangan: e.target.value})}
+                    className="w-full glass-input px-4 py-2.5 rounded-xl outline-none"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Nama</label>
+                  <input 
+                    type="text" 
+                    value={data.namaPenandatangan}
+                    onChange={(e) => setData({...data, namaPenandatangan: e.target.value})}
+                    className="w-full glass-input px-4 py-2.5 rounded-xl outline-none"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Jabatan</label>
+                  <input 
+                    type="text" 
+                    value={data.jabatanPenandatangan}
+                    onChange={(e) => setData({...data, jabatanPenandatangan: e.target.value})}
+                    className="w-full glass-input px-4 py-2.5 rounded-xl outline-none"
+                  />
+                </div>
               </div>
             </div>
           </section>
