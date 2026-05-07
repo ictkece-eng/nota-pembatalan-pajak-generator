@@ -645,9 +645,12 @@ export default function App() {
             <div className="mt-auto pt-12 self-end text-center min-w-[300px]">
               <p>Jakarta, {formatDateIndo(data.tanggalDokumen)}</p>
               <p className="mt-1 font-bold">{data.penandatangan}</p>
-              <div className="h-24"></div>
-              <p className="font-bold">{data.namaPenandatangan}</p>
-              <p className="mt-1">{data.jabatanPenandatangan}</p>
+              <div className="h-24 flex items-end justify-center">
+                <div className="w-56 border-t border-black pt-1">
+                  <p className="font-bold min-h-[1.2rem]">{data.namaPenandatangan || '\u00A0'}</p>
+                  <p className="mt-1 min-h-[1.2rem]">{data.jabatanPenandatangan || '\u00A0'}</p>
+                </div>
+              </div>
             </div>
           </div>
           
